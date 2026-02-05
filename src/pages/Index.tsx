@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion, useScroll, useSpring, useMotionValueEvent, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import RosePetals from "@/components/RosePetals";
 import RoseBloom from "@/components/RoseBloom";
@@ -24,11 +23,6 @@ function ArrowHint({ scrollProgress }: { scrollProgress: ReturnType<typeof useSc
 export default function Index() {
   const { scrollYProgress } = useScroll();
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 50, damping: 20 });
-  const [debugValue, setDebugValue] = useState(0);
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    setDebugValue(latest);
-  });
 
   return (
     <main
